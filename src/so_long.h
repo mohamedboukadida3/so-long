@@ -6,7 +6,7 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 14:36:05 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/04 19:40:51 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/05 20:16:22 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,16 @@ typedef struct s_map
 	char		**copy_full;
 	int			line;
 	int			count_caracter;
+
+	void		*mlx_ptr;
+	void		*win_ptr;
+
+	void		*player;
+	void		*floor;
+	void		*wall;
+	void		*items;
+	void		*exit;
 }		t_map;
-
-typedef struct s_image
-{
-	char	*image_path;
-	void	*image_ptr;
-	int		height_image;
-	int		lenght_image;
-}		t_image;
-
-typedef struct s_game
-{
-	void	*mlx;
-	void	*win;
-	t_image	wall;
-	t_image	player;
-	t_image	items;
-	t_image	floor;
-	t_image	exit;
-}		t_game;
 
 /*.................................PARSING....................................*/
 
@@ -62,7 +52,12 @@ void	is_valid_path(t_map *map);
 void	check_after_fill(t_map *map);
 /*.................................MLX........................................*/
 
-//void	set_image(t_game *game);
+void	put_player(t_map *map, int x, int y);
+void	put_items(t_map *map, int x, int y);
+void	put_images_in_game(t_map *map);
+void	adding_in_graphics(t_map *map);
+void	ft_init_game(t_map *map);
+
 /*.................................MAIN.......................................*/
 
 int		main(int ac, char **av);
