@@ -6,7 +6,7 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:20:32 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/04 11:10:07 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/06 14:46:26 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,19 @@ void	ft_line_count(t_map	*map, char *av)
 	int		i;
 	char	*map1;
 
+	i = open(av, O_DIRECTORY);
+	if (i > 0)
+	{
+		ft_printf("error, %s is directory !\n", av);
+		exit(EXIT_FAILURE);
+	}
 	i = open(av, O_RDONLY);
 	map1 = get_next_line(i);
+	if (!map1)
+	{
+		ft_printf("error , the map is empty !\n");
+		exit(EXIT_FAILURE);
+	}
 	map->line = 0;
 	map->count_caracter = ft_strlen(map1) - 1;
 	while (map1)
