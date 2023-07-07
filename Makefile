@@ -6,7 +6,7 @@
 #    By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/26 14:21:38 by mboukadi          #+#    #+#              #
-#    Updated: 2023/07/05 18:35:06 by mboukadi         ###   ########.fr        #
+#    Updated: 2023/07/07 17:21:12 by mboukadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,8 @@ SRCS = 	src/main.c \
 		src/so_long_utils1.c \
 		src/so_long_utils2.c \
 		src/mlx.c \
+		src/move.c \
+		src/move_utils.c \
 
 OBJS = $(SRCS:.c=.o)
 

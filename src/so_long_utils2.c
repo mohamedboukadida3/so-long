@@ -6,7 +6,7 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 12:59:44 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/04 19:06:15 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/07 13:10:53 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	check_arg(int argc, char **argv)
 		return (0);
 	}
 	size = ft_strlen(argv[1]);
-	if (size < 4 || (argv[1][size - 4] != '.' && argv[1][size - 3] != 'b'
-		&& argv[1][size - 2] != 'e' && argv[1][size - 1] != 'r'))
+	if (argv[1][size - 4] != '.' || argv[1][size - 3] != 'b'
+		|| argv[1][size - 2] != 'e' || argv[1][size - 1] != 'r')
 	{
 		ft_printf("Invalid file type, use .ber\n");
 		return (0);

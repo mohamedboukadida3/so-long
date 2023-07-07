@@ -6,7 +6,7 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 14:36:05 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/06 19:17:47 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/07 17:19:21 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ typedef struct s_map
 
 	void		*player_right;
 	void		*player_left;
-	void		*player_up;
-	void		*player_down;
 	void		*floor;
 	void		*wall;
 	void		*items;
@@ -62,12 +60,13 @@ void	check_after_fill(t_map *map);
 void	put_player(t_map *map, int x, int y);
 void	put_items(t_map *map, int x, int y);
 void	put_images_in_game(t_map *map);
-void	adding_in_graphics(t_map *map);
+int		adding_in_graphics(t_map *map);
 void	ft_init_game(t_map *map);
 void	ft_position_player(t_map *map, int x, int y);
 void	ft_move(t_map *map, int x, int y);
 int		ft_key(t_map *map, int key);
 int		ft_exit(t_map *map);
+void	ft_print_moves(t_map *map);
 
 /*.................................MAIN.......................................*/
 

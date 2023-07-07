@@ -6,7 +6,7 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 14:15:59 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/06 19:22:07 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/07 18:42:44 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	main(int ac, char **av)
 	ft_init_game(&map);
 	adding_in_graphics(&map);
 	mlx_loop_hook(map.mlx_ptr, &adding_in_graphics, &map);
-	mlx_hook(map.mlx_ptr, 2, 0, &ft_key, &map);
-	mlx_hook(map.mlx_ptr, 17, 0, &ft_exit, NULL);
+	mlx_hook(map.win_ptr, 2, 0, &ft_key, &map);
+	mlx_hook(map.win_ptr, 17, 0, &ft_exit, &map);
 	mlx_loop(map.mlx_ptr);
 	return (EXIT_SUCCESS);
 }

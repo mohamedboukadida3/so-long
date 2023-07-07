@@ -6,7 +6,7 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:25:52 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/06 19:27:18 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/07 18:55:29 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	put_images_in_game(t_map *map)
 			"./src/image/items.xpm", &i, &j);
 }
 
-void	adding_in_graphics(t_map *map)
+int	adding_in_graphics(t_map *map)
 {
 	int	i;
 	int	j;
@@ -80,4 +80,12 @@ void	adding_in_graphics(t_map *map)
 					map->win_ptr, map->exit, j * 64, i * 64);
 		}
 	}
+	return (0);
+}
+
+void	put_image(t_map *map, void *image, int x, int y)
+{
+	if (!image)
+		ft_printf("error, image doesn't exist\n");
+	mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, image, x, y);
 }
