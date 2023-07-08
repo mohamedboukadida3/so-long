@@ -6,11 +6,11 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:20:32 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/06 14:46:26 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/08 14:40:17 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	ft_line_count(t_map	*map, char *av)
 {

@@ -6,11 +6,11 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 18:09:35 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/06 14:42:51 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/08 14:40:27 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	ft_copy_map(t_map *map, char *av)
 {

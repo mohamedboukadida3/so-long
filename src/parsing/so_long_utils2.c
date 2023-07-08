@@ -6,11 +6,11 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 12:59:44 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/08 00:35:07 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/08 14:41:24 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int	check_arg(int argc, char **argv)
 {
@@ -70,16 +70,16 @@ void	ft_is_rectangle(t_map *map)
 	}
 }
 
-void	init_game(t_map *map)
+void	ft_init_game(t_map *map)
 {
 	map->line = 0;
 	map->count_caracter = 0;
 	map->collect = 0;
-	map->player_x;
-	map->player_y;
+	map->player_x = 0;
+	map->player_y = 0;
 	map->moves = 0;
-	map->mlx_ptr = NULL;
-	map->win_ptr = NULL;
+	map->mlx_ptr = 0;
+	map->win_ptr = 0;
 	map->player = 0;
 	map->floor = 0;
 	map->wall = 0;

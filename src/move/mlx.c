@@ -6,11 +6,11 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:25:52 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/08 00:51:51 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/08 16:22:45 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	ft_init_mlx(t_map *map)
 {
@@ -26,7 +26,7 @@ void	ft_init_mlx(t_map *map)
 void	put_player(t_map *map, int y, int x)
 {
 	mlx_put_image_to_window(map->mlx_ptr,
-		map->win_ptr, map->player_right, y * 64, x * 64);
+		map->win_ptr, map->player, y * 64, x * 64);
 }
 
 void	put_items(t_map *map, int y, int x)
@@ -44,7 +44,7 @@ void	put_images_in_game(t_map *map)
 			"./src/image/floor.xpm", &i, &j);
 	map->wall = mlx_xpm_file_to_image(map->mlx_ptr,
 			"./src/image/wall.xpm", &i, &j);
-	map->player_right = mlx_xpm_file_to_image(map->mlx_ptr,
+	map->player = mlx_xpm_file_to_image(map->mlx_ptr,
 			"./src/image/player_right.xpm", &i, &j);
 	map->exit = mlx_xpm_file_to_image(map->mlx_ptr,
 			"./src/image/exit.xpm", &i, &j);
@@ -53,8 +53,8 @@ void	put_images_in_game(t_map *map)
 	if (!map->wall || !map->exit || !map->items || !map->player
 		|| !map->floor)
 	{
-		free(map->win);
-		free(map->mlx);
+		free(map->win_ptr);
+		free(map->mlx_ptr);
 		ft_printf("error, image file is missing!\n");
 		exit(EXIT_FAILURE);
 	}

@@ -6,7 +6,7 @@
 #    By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/26 14:21:38 by mboukadi          #+#    #+#              #
-#    Updated: 2023/07/07 17:21:12 by mboukadi         ###   ########.fr        #
+#    Updated: 2023/07/08 14:42:03 by mboukadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,12 @@ NAME = so_long
 ############################ * F I L E S * #####################################
 
 SRCS = 	src/main.c \
-		src/so_long_utils.c \
-		src/so_long_utils1.c \
-		src/so_long_utils2.c \
-		src/mlx.c \
-		src/move.c \
-		src/move_utils.c \
+		src/parsing/so_long_utils.c \
+		src/parsing/so_long_utils1.c \
+		src/parsing/so_long_utils2.c \
+		src/move/mlx.c \
+		src/move/move.c \
+		src/move/move_utils.c \
 
 OBJS = $(SRCS:.c=.o)
 

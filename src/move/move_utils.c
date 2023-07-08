@@ -6,13 +6,13 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 12:56:27 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/08 00:58:39 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/08 17:14:56 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-void	ft_print_moves(t_map *map)
+int	ft_print_moves(t_map *map)
 {
 	ft_printf("You made ");
 	ft_putnbr_fd(map->moves, 1);
@@ -20,6 +20,7 @@ void	ft_print_moves(t_map *map)
 		ft_printf(" move\r", 1);
 	else
 		ft_printf(" moves\r", 1);
+	return (map->moves);
 }
 
 void	ft_position_player(t_map *map)
@@ -57,5 +58,5 @@ int	ft_collect(t_map *map)
 				map->collect++;
 		}
 	}
-	return (collect);
+	return (map->collect);
 }

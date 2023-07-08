@@ -6,7 +6,7 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 14:15:59 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/08 00:46:09 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/08 17:14:14 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_exit(t_map *map)
 {
 	mlx_destroy_window(map->mlx_ptr, map->win_ptr);
 	free(map->mlx_ptr);
-	exit(EXIT_SUCCESS);
+	exit(EXIT_FAILURE);
 }
 
 int	main(int ac, char **av)
@@ -38,9 +38,9 @@ int	main(int ac, char **av)
 	ft_position_player(&map);
 	ft_init_mlx(&map);
 	adding_in_graphics(&map);
-	mlx_loop_hook(map.mlx_ptr, &adding_in_graphics, &map);
-	mlx_hook(map.win_ptr, 2, 0, &ft_key, &map);
-	mlx_hook(map.win_ptr, 17, 0, &ft_exit, &map);
+	mlx_hook(map.win_ptr, 2, 0, ft_key, &map);
+	mlx_hook(map.win_ptr, 17, 0, ft_exit, &map);
+	mlx_loop_hook(map.mlx_ptr, adding_in_graphics, &map);
 	mlx_loop(map.mlx_ptr);
 	free(map.mlx_ptr);
 	return (EXIT_SUCCESS);
