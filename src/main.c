@@ -6,11 +6,18 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 14:15:59 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/07 18:42:44 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/08 00:46:09 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	ft_exit(t_map *map)
+{
+	mlx_destroy_window(map->mlx_ptr, map->win_ptr);
+	free(map->mlx_ptr);
+	exit(EXIT_SUCCESS);
+}
 
 int	main(int ac, char **av)
 {
@@ -18,6 +25,7 @@ int	main(int ac, char **av)
 
 	if (check_arg(ac, av) == 0)
 		exit(EXIT_FAILURE);
+	ft_init_game(&map);
 	ft_line_count(&map, av[1]);
 	ft_init_map(&map, av[1]);
 	ft_copy_map(&map, av[1]);
@@ -27,12 +35,14 @@ int	main(int ac, char **av)
 	ft_is_rectangle(&map);
 	is_valid_path(&map);
 	check_after_fill(&map);
-	ft_init_game(&map);
+	ft_position_player(&map);
+	ft_init_mlx(&map);
 	adding_in_graphics(&map);
 	mlx_loop_hook(map.mlx_ptr, &adding_in_graphics, &map);
 	mlx_hook(map.win_ptr, 2, 0, &ft_key, &map);
 	mlx_hook(map.win_ptr, 17, 0, &ft_exit, &map);
 	mlx_loop(map.mlx_ptr);
+	free(map.mlx_ptr);
 	return (EXIT_SUCCESS);
 }
 	//system ("leaks so_long");

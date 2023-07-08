@@ -6,7 +6,7 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 12:59:44 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/07 13:10:53 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/08 00:35:07 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,21 @@ void	ft_is_rectangle(t_map *map)
 		}
 		i++;
 	}
+}
+
+void	init_game(t_map *map)
+{
+	map->line = 0;
+	map->count_caracter = 0;
+	map->collect = 0;
+	map->player_x;
+	map->player_y;
+	map->moves = 0;
+	map->mlx_ptr = NULL;
+	map->win_ptr = NULL;
+	map->player = 0;
+	map->floor = 0;
+	map->wall = 0;
+	map->items = 0;
+	map->exit = 0;
 }

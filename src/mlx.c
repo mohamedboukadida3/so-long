@@ -6,13 +6,13 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:25:52 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/07 18:55:29 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/08 00:51:51 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_init_game(t_map *map)
+void	ft_init_mlx(t_map *map)
 {
 	map->mlx_ptr = mlx_init();
 	if (map->mlx_ptr == 0)
@@ -46,12 +46,18 @@ void	put_images_in_game(t_map *map)
 			"./src/image/wall.xpm", &i, &j);
 	map->player_right = mlx_xpm_file_to_image(map->mlx_ptr,
 			"./src/image/player_right.xpm", &i, &j);
-	map->player_left = mlx_xpm_file_to_image(map->mlx_ptr,
-			"./src/image/player_left.xpm", &i, &j);
 	map->exit = mlx_xpm_file_to_image(map->mlx_ptr,
 			"./src/image/exit.xpm", &i, &j);
 	map->items = mlx_xpm_file_to_image(map->mlx_ptr,
 			"./src/image/items.xpm", &i, &j);
+	if (!map->wall || !map->exit || !map->items || !map->player
+		|| !map->floor)
+	{
+		free(map->win);
+		free(map->mlx);
+		ft_printf("error, image file is missing!\n");
+		exit(EXIT_FAILURE);
+	}
 }
 
 int	adding_in_graphics(t_map *map)
@@ -81,11 +87,4 @@ int	adding_in_graphics(t_map *map)
 		}
 	}
 	return (0);
-}
-
-void	put_image(t_map *map, void *image, int x, int y)
-{
-	if (!image)
-		ft_printf("error, image doesn't exist\n");
-	mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, image, x, y);
 }

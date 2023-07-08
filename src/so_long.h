@@ -6,7 +6,7 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 14:36:05 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/07 17:19:21 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/08 00:38:03 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ typedef struct s_map
 	void		*mlx_ptr;
 	void		*win_ptr;
 
-	void		*player_right;
-	void		*player_left;
+	void		*player;
 	void		*floor;
 	void		*wall;
 	void		*items;
@@ -55,14 +54,16 @@ void	ft_copy_map(t_map *map, char *av);
 void	ft_flood_fill(t_map *map, int x, int y);
 void	is_valid_path(t_map *map);
 void	check_after_fill(t_map *map);
+void	init_game(t_map *map);
 /*.................................MLX........................................*/
 
 void	put_player(t_map *map, int x, int y);
 void	put_items(t_map *map, int x, int y);
 void	put_images_in_game(t_map *map);
 int		adding_in_graphics(t_map *map);
-void	ft_init_game(t_map *map);
-void	ft_position_player(t_map *map, int x, int y);
+void	ft_init_mlx(t_map *map);
+int		ft_collect(t_map *map);
+void	ft_position_player(t_map *map);
 void	ft_move(t_map *map, int x, int y);
 int		ft_key(t_map *map, int key);
 int		ft_exit(t_map *map);
