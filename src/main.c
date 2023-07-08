@@ -6,7 +6,7 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 14:15:59 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/08 17:14:14 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:32:36 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int ac, char **av)
 	mlx_hook(map.win_ptr, 17, 0, ft_exit, &map);
 	mlx_loop_hook(map.mlx_ptr, adding_in_graphics, &map);
 	mlx_loop(map.mlx_ptr);
+	system ("leaks so_long");
 	free(map.mlx_ptr);
 	return (EXIT_SUCCESS);
 }
-	//system ("leaks so_long");

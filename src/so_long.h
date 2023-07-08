@@ -6,7 +6,7 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 14:36:05 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/08 17:15:11 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:32:02 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ int		ft_collect(t_map *map);
 void	ft_position_player(t_map *map);
 int		ft_key(int key, t_map *map);
 int		ft_exit(t_map *map);
-int		ft_print_moves(t_map *map);
 
 /*.................................MAIN.......................................*/
 
