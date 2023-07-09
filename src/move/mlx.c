@@ -6,22 +6,11 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:25:52 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/08 16:22:45 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/10 00:16:35 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-
-void	ft_init_mlx(t_map *map)
-{
-	map->mlx_ptr = mlx_init();
-	if (map->mlx_ptr == 0)
-		ft_printf("error\n");
-	map->win_ptr = mlx_new_window(map->mlx_ptr, (map->count_caracter * 64),
-			(map->line * 64), "so_long");
-	if (map->win_ptr == 0)
-		ft_printf("error\n");
-}
 
 void	put_player(t_map *map, int y, int x)
 {
@@ -33,6 +22,12 @@ void	put_items(t_map *map, int y, int x)
 {
 	mlx_put_image_to_window(map->mlx_ptr,
 		map->win_ptr, map->items, y * 64, x * 64);
+}
+
+void	put_wall(t_map *map, int y, int x)
+{
+	mlx_put_image_to_window(map->mlx_ptr,
+		map->win_ptr, map->wall, y * 64, x * 64);
 }
 
 void	put_images_in_game(t_map *map)
@@ -75,8 +70,7 @@ int	adding_in_graphics(t_map *map)
 			mlx_put_image_to_window(map->mlx_ptr,
 				map->win_ptr, map->floor, j * 64, i * 64);
 			if (map->full[i][j] == '1')
-				mlx_put_image_to_window(map->mlx_ptr,
-					map->win_ptr, map->wall, j * 64, i * 64);
+				put_wall(map, j, i);
 			else if (map->full[i][j] == 'C')
 				put_items(map, j, i);
 			else if (map->full[i][j] == 'P')
@@ -84,6 +78,7 @@ int	adding_in_graphics(t_map *map)
 			else if (map->full[i][j] == 'E')
 				mlx_put_image_to_window(map->mlx_ptr,
 					map->win_ptr, map->exit, j * 64, i * 64);
+			ft_print_movements(map);
 		}
 	}
 	return (0);

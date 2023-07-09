@@ -6,13 +6,13 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 15:00:41 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/04/14 16:35:21 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/10 00:10:35 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_count(unsigned int n)
+int	ft_counta(unsigned int n)
 {
 	int	i;
 
@@ -31,7 +31,7 @@ int	ft_putunbr(unsigned int n)
 {
 	int	i;
 
-	i = ft_count(n);
+	i = ft_counta(n);
 	if (n == 0)
 	{
 		ft_putchar('0');

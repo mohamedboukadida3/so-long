@@ -6,23 +6,20 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:51:17 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/08 19:34:47 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/10 00:27:23 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	right_move(t_map *map, int i, int j)
+static int	right_move(t_map *map, int i, int j)
 {
-	if (map->full[j][i] == 'E' && map->collect != 0)
-		return ;
 	if (map->full[j][i] == 'E')
 	{
 		if (map->collect == 0)
-		{
-			ft_printf("\nYou Have Won, Congrats!\n");
-			exit(EXIT_SUCCESS);
-		}
+			return (0);
+		ft_printf("\nYou Have Won, Congrats!\n");
+		end(map);
 	}
 	if (map->full[j][i] == '0')
 	{
@@ -39,6 +36,7 @@ void	right_move(t_map *map, int i, int j)
 		map->collect--;
 		map->moves++;
 	}
+	return (0);
 }
 
 static int	keyboard_w_s(t_map *map, int movement)

@@ -6,7 +6,7 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 15:52:23 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/04 18:43:36 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/08 20:24:19 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,11 +109,5 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line = ft_line(buffer[fd]);
 	buffer[fd] = ft_next(buffer[fd]);
-	if (line == '\0')
-	{
-		free(buffer[fd]);
-		free(line);
-		return (0);
-	}
 	return (line);
 }
