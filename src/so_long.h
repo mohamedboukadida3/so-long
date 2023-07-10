@@ -6,7 +6,7 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 14:36:05 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/10 00:06:39 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/10 17:18:21 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <fcntl.h>
-# include "mlx.h"
+# include <mlx.h>
 
 typedef struct s_map
 {
@@ -61,10 +61,10 @@ void	put_items(t_map *map, int x, int y);
 void	put_images_in_game(t_map *map);
 int		adding_in_graphics(t_map *map);
 void	ft_init_mlx(t_map *map);
-int		ft_collect(t_map *map);
+void	ft_collect(t_map *map);
 void	ft_position_player(t_map *map);
 int		ft_key(int key, t_map *map);
-int		end(t_map *map);
+void	end(t_map *map);
 int		ft_exit(t_map *map);
 void	ft_print_movements(t_map *map);
 

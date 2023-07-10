@@ -6,7 +6,7 @@
 #    By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/26 14:21:38 by mboukadi          #+#    #+#              #
-#    Updated: 2023/07/08 20:27:01 by mboukadi         ###   ########.fr        #
+#    Updated: 2023/07/10 14:20:09 by mboukadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,9 +32,9 @@ MAKE_EXT 		= @make -s --no-print-directory -C
 OBJ 			= ${OBJS}
 UNAME_S			= $(shell uname -s)
 
-LIBS 			= -L ./libft -lft -framework OpenGL -framework AppKit 
+LIBS 			= -L ./libft -lft -lmlx -framework OpenGL -framework AppKit 
 
-COMPIL			= $(CC) $(CFLAGS) ${OBJ} libmlx.dylib $(LIBS) -o $(NAME)
+COMPIL			= $(CC) $(CFLAGS) ${OBJ} $(LIBS) -o $(NAME)
 
 ################################# * R U L E S * #####################################
 $(NAME):	${OBJ}

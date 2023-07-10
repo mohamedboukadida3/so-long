@@ -6,7 +6,7 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:25:52 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/10 00:16:35 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/10 17:25:36 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,11 @@ int	adding_in_graphics(t_map *map)
 				put_wall(map, j, i);
 			else if (map->full[i][j] == 'C')
 				put_items(map, j, i);
-			else if (map->full[i][j] == 'P')
-				put_player(map, j, i);
 			else if (map->full[i][j] == 'E')
 				mlx_put_image_to_window(map->mlx_ptr,
 					map->win_ptr, map->exit, j * 64, i * 64);
+			else if (map->full[i][j] == 'P')
+				put_player(map, j, i);
 			ft_print_movements(map);
 		}
 	}

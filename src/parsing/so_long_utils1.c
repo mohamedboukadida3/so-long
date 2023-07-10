@@ -6,7 +6,7 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 18:09:35 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/08 14:40:27 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/10 19:42:25 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void	ft_copy_map(t_map *map, char *av)
 
 void	ft_flood_fill(t_map *map, int x, int y)
 {
-	if (map->copy_full[x][y] != '1' && map->copy_full[x][y] != 'F')
+	if ((map->copy_full[x][y] != '1' && map->copy_full[x][y] != 'E')
+		&& map->copy_full[x][y] != 'F')
 	{
 		map->copy_full[x][y] = 'F';
 		ft_flood_fill(map, x - 1, y);
@@ -74,7 +75,7 @@ void	check_after_fill(t_map *map)
 		j = 0;
 		while (map->copy_full[i][++j])
 		{
-			if (map->copy_full[i][j] == 'C' || map->copy_full[i][j] == 'E' )
+			if (map->copy_full[i][j] == 'C')
 			{
 				ft_printf("invalid path !\n");
 				exit(EXIT_FAILURE);
