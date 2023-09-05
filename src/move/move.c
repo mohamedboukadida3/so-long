@@ -6,7 +6,7 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:51:17 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/10 17:25:11 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/10 00:27:23 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 static int	right_move(t_map *map, int i, int j)
 {
-	ft_collect(map);
-	if (map->full[j][i] == 'E' && map->collect == 0)
+	if (map->full[j][i] == 'E')
 	{
+		if (map->collect == 0)
+			return (0);
 		ft_printf("\nYou Have Won, Congrats!\n");
 		end(map);
 	}
@@ -48,8 +49,7 @@ static int	keyboard_w_s(t_map *map, int movement)
 	if (movement == 13 || movement == 126)
 	{
 		j--;
-		if (map->full[j][i] == '1' || (map->full[j][i] == 'E'
-			&& map->collect != 0))
+		if (map->full[j][i] == '1')
 			return (0);
 		right_move(map, i, j);
 		map->full[j + 1][i] = '0';
@@ -57,8 +57,7 @@ static int	keyboard_w_s(t_map *map, int movement)
 	else if (movement == 1 || movement == 125)
 	{
 		j++;
-		if (map->full[j][i] == '1' || (map->full[j][i] == 'E'
-			&& map->collect != 0))
+		if (map->full[j][i] == '1')
 			return (0);
 		right_move(map, i, j);
 		map->full[j - 1][i] = '0';
@@ -77,8 +76,7 @@ static int	keyboard_a_d(t_map *map, int movement)
 	if (movement == 0 || movement == 123)
 	{
 		i--;
-		if (map->full[j][i] == '1' || (map->full[j][i] == 'E'
-			&& map->collect != 0))
+		if (map->full[j][i] == '1')
 			return (0);
 		right_move(map, i, j);
 		map->full[j][i + 1] = '0';
@@ -86,8 +84,7 @@ static int	keyboard_a_d(t_map *map, int movement)
 	else if (movement == 2 || movement == 124)
 	{
 		i++;
-		if (map->full[j][i] == '1' || (map->full[j][i] == 'E'
-			&& map->collect != 0))
+		if (map->full[j][i] == '1')
 			return (0);
 		right_move(map, i, j);
 		map->full[j][i - 1] = '0';
@@ -101,7 +98,7 @@ int	ft_key(int key, t_map *map)
 	int	s;
 
 	if (key == 53)
-		ft_exit(map);
+		exit(0);
 	if (key == 13 || key == 126)
 		s = keyboard_w_s(map, key);
 	if (key == 2 || key == 124)

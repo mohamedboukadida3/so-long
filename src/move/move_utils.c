@@ -6,7 +6,7 @@
 /*   By: mboukadi <mboukadi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 12:56:27 by mboukadi          #+#    #+#             */
-/*   Updated: 2023/07/10 20:19:34 by mboukadi         ###   ########.fr       */
+/*   Updated: 2023/07/10 00:21:05 by mboukadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_position_player(t_map *map)
 	}
 }
 
-void	ft_collect(t_map *map)
+int	ft_collect(t_map *map)
 {
 	int	x;
 	int	y;
@@ -59,17 +59,21 @@ void	ft_collect(t_map *map)
 				map->collect++;
 		}
 	}
+	return (map->collect);
 }
 
-void	end(t_map *map)
+int	end(t_map *map)
 {
-	int	i;
-
-	i = -1;
-	while (map->full[++i] != 0)
-		free(map->full[i]);
+	free(map->full);
+	mlx_destroy_image(map->mlx_ptr, map->wall);
+	mlx_destroy_image(map->mlx_ptr, map->floor);
+	mlx_destroy_image(map->mlx_ptr, map->items);
+	mlx_destroy_image(map->mlx_ptr, map->player);
+	mlx_destroy_image(map->mlx_ptr, map->exit);
+	mlx_destroy_window(map->mlx_ptr, map->win_ptr);
 	free(map->mlx_ptr);
 	exit(EXIT_SUCCESS);
+	return (EXIT_SUCCESS);
 }
 
 void	ft_print_movements(t_map *map)
@@ -79,7 +83,7 @@ void	ft_print_movements(t_map *map)
 
 	movements = ft_itoa(map->moves);
 	phrase = ft_strjoin("Movements : ", movements);
-	mlx_string_put(map->mlx_ptr, map->win_ptr, 100, 30, 0xFF0000, phrase);
+	mlx_string_put(map->mlx_ptr, map->win_ptr, 30, 30, 0xFF0000, phrase);
 	free(movements);
 	free(phrase);
 }
